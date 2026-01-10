@@ -1,11 +1,59 @@
 <%- include("../layout/headSection.ejs") %>
 <%- include("../layout/header.ejs") %>
 
-<div class="d-flex justify-content-center align-items-center vh-100">
-    <div class="text-center">
-        <h1>About</h1>
-        <p>This is the About page content.</p>
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h1 class="fw-bold">About Us</h1>
+        <p class="text-muted fs-5 col-md-8 mx-auto">
+            Learn more about who we are, what we do, and why we are passionate
+            about delivering high-quality digital solutions.
+        </p>
+    </div>
+
+    <div class="row g-4">
+        <% allData.forEach(item => { %>
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm text-center border-0">
+                    
+                    <% if (item.screenShot) { %>
+                        <img 
+                            src="/<%= item.screenShot %>"
+                            class="card-img-top"
+                            alt="<%= item.title %>"
+                            style="height:220px; object-fit:cover;"
+                        >
+                    <% } %>
+
+                    <div class="card-body">
+                        <h4 class="card-title fw-semibold"><%= item.title %></h4>
+                        <p class="card-text text-muted">
+                            <%= item.description %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-10 mx-auto">
+            <div class="alert alert-secondary shadow-sm">
+                <h5 class="alert-heading">Our Values</h5>
+                <p class="mb-2">
+                    We believe in writing clean code, building scalable systems,
+                    and creating user-friendly experiences. Our team focuses on
+                    continuous improvement and long-term success.
+                </p>
+                <p class="mb-0">
+                    Transparency, reliability, and innovation are at the core of
+                    everything we build.
+                </p>
+            </div>
+        </div>
     </div>
 </div>
 
 <%- include("../layout/footer.ejs") %>
+
+
+
